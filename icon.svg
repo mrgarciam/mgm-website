@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="1024" height="1024">
+<defs>
+<linearGradient id="badge" x1="0" y1="0" x2="0" y2="320" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1C3F7E"/><stop offset="1" stop-color="#0E2350"/></linearGradient>
+<linearGradient id="mark" x1="0" y1="42" x2="0" y2="250" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#EAF3FC"/><stop offset="0.5" stop-color="#BCD5EE"/><stop offset="1" stop-color="#7FA9D4"/></linearGradient>
+</defs>
+<rect width="320" height="320" rx="60" fill="url(#badge)"/>
+<g transform="translate(14,56) scale(0.6)" fill="none" stroke="url(#mark)" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"><path d="M92 250 V126 L170 42 L248 126 V250"/></g>
+<g transform="translate(102,56) scale(0.6)" fill="none" stroke="url(#mark)" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"><path d="M92 250 V126 L170 42 L248 126 V250"/></g>
+<path d="M50 236 H272" fill="none" stroke="url(#mark)" stroke-opacity="0.9" stroke-width="9" stroke-linecap="round"/>
+<g transform="translate(58,86) scale(0.6)"><path d="M92 250 V126 L170 42 L248 126 V250 Z" fill="#15316A"/>
+<g fill="none" stroke="url(#mark)" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+<path d="M92 250 V126 L170 42 L248 126 V250"/><path d="M78 250 H262"/><path d="M118 92 V58 H134 V74"/><path d="M147 250 V196 a23 23 0 0 1 46 0 V250"/></g></g>
+</svg>
