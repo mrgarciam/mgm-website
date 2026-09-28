@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About your land | MGM Development Group</title>
+<meta name="description" content="MGM Development Group is a local Central Florida builder. If you own a lot, we would be glad to talk." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy-1:#2C548C;--navy-2:#14346A;--navy-deep:#0E2350;--ink:#12233f;--muted:#5a6b85;--line:#e6ebf3;--bg-soft:#f5f8fc;--light:#eaf3fc;--amber:#c7851f;
+--grad:linear-gradient(90deg,#2C548C 0%,#14346A 100%);--grad-deep:linear-gradient(160deg,#1C3F7E 0%,#0E2350 100%);--shadow:0 18px 50px -20px rgba(14,35,80,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Oxanium','Inter',sans-serif;line-height:1.15;color:var(--navy-2)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.eyebrow{font-family:'Oxanium';text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:600;color:var(--navy-1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:'Oxanium';font-weight:600;font-size:1rem;padding:.9rem 1.4rem;border-radius:999px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:.2s}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 24px -12px rgba(20,52,106,.7)}
+.btn-ghost{background:#fff;color:var(--navy-2);border-color:var(--line)}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav img{height:46px;display:block}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-family:'Oxanium';font-weight:600;font-size:.85rem}
+.lang button{border:0;background:#fff;color:var(--muted);padding:.45rem .8rem;cursor:pointer}
+.lang button.on{background:var(--navy-2);color:#fff}
+section{padding:64px 0}
+.hero{background:var(--bg-soft);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 85% -10%,rgba(44,84,140,.14),transparent 60%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);margin:.7rem 0 1rem}
+.hero h1 em{font-style:normal;color:var(--navy-1)}
+.hero p.lead{font-size:1.1rem;color:var(--muted);max-width:560px}
+.hero .cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.mapcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:var(--shadow)}
+.mapcard svg{display:block;width:100%;height:auto}
+.mapcap{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 6px 2px;font-size:.9rem}
+.mapcap b{font-family:'Oxanium';color:var(--navy-2);font-size:1.05rem}
+.mapcap span{color:var(--muted)}
+.meet{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
+.meet img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;box-shadow:var(--shadow);display:block}
+.meet blockquote{font-family:'Oxanium';font-size:1.15rem;line-height:1.55;color:var(--ink);border-left:3px solid var(--amber);padding-left:22px;font-style:normal}
+.meet .sig{margin-top:18px;font-size:.95rem;padding-left:22px}
+.meet .sig b{font-family:'Oxanium';color:var(--navy-2);display:block;font-size:1rem}
+.meet .sig span{color:var(--muted)}
+.sec-head{max-width:680px;margin-bottom:30px}
+.sec-head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:.5rem 0 .6rem}
+.sec-head p{color:var(--muted)}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choice{background:#fff;border:2px solid var(--line);border-radius:18px;padding:22px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:.2s}
+.choice:hover{border-color:#c7d6ea;transform:translateY(-2px)}
+.choice.on{border-color:var(--navy-1);box-shadow:var(--shadow)}
+.choice .ic{width:44px;height:44px;border-radius:12px;background:var(--light);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1.3rem}
+.choice h3{font-size:1.1rem;margin-bottom:.3rem}
+.choice p{color:var(--muted);font-size:.93rem}
+form{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow);display:none}
+form.on{display:block}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+label{display:block;font-size:.85rem;font-weight:600;color:var(--navy-2);margin-bottom:.35rem;font-family:'Oxanium'}
+input,textarea,select{width:100%;font:inherit;color:var(--ink);padding:.8rem .95rem;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--navy-1);box-shadow:0 0 0 3px rgba(44,84,140,.12)}
+textarea{min-height:100px;resize:vertical}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pills label{font-family:'Inter';font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.5rem .9rem;cursor:pointer;margin:0;display:flex;gap:.45rem;align-items:center}
+.pills input{width:auto}
+.check{display:flex;gap:.6rem;align-items:flex-start;font-size:.85rem;color:var(--muted);font-family:'Inter';font-weight:400}
+.check input{width:auto;margin-top:.25rem}
+.note{font-size:.82rem;color:var(--muted);margin-top:10px;text-align:center}
+.thanks{display:none;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;border-radius:16px;padding:18px 20px;margin-top:20px;font-weight:500}
+.benefits{background:var(--grad-deep);color:#eaf1fb}
+.benefits h2{color:#fff}.benefits .sec-head p{color:#b8c8e4}.benefits .eyebrow{color:#8fb3e0}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.b{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px}
+.b h3{color:#fff;font-size:1.05rem;margin-bottom:.35rem}.b p{color:#b8c8e4;font-size:.93rem}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.c{border:1px solid var(--line);border-radius:18px;padding:24px;background:#fff}.c .n{font-family:'Oxanium';font-weight:700;color:var(--amber);font-size:1.4rem;margin-bottom:8px}.c h3{font-size:1.08rem;margin-bottom:.35rem}.c p{color:var(--muted);font-size:.94rem}
+.build{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.build figure{margin:0;border-radius:16px;overflow:hidden;position:relative}
+.build img{width:100%;height:100%;object-fit:cover;display:block;min-height:220px}
+.build figcaption{position:absolute;left:12px;bottom:12px;background:rgba(14,35,80,.8);color:#dfe9f8;font-family:'Oxanium';font-size:.75rem;padding:.35rem .75rem;border-radius:999px}
+.who{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;padding:26px;margin-top:22px}
+.avatar{width:84px;height:84px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Oxanium';font-size:1.7rem;font-weight:700}
+footer{background:var(--navy-deep);color:#c8d6ee;padding:36px 0;font-size:.85rem}
+footer img{height:40px;margin-bottom:12px}
+footer p{color:#8ea3c6;max-width:720px}
+[data-es]{}
+@media(max-width:860px){.hero-grid,.build{grid-template-columns:1fr}.choices,.bgrid,.cgrid{grid-template-columns:1fr}.row{grid-template-columns:1fr}section{padding:48px 0}.mapcard{order:-1}.meet{grid-template-columns:1fr}.meet img{max-width:240px;margin:0 auto}.meet blockquote,.meet .sig{padding-left:0;border-left:0;text-align:center}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="https://mgmdevgroup.com/"><img src="/logo_lockup.svg" alt="MGM Development Group" /></a>
+  <div class="lang"><button data-l="en" class="on">EN</button><button data-l="es">ES</button></div>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow" data-en="A note about your land" data-es="Sobre su terreno">A note about your land</span>
+    <h1 id="h1"></h1>
+    <p class="lead" data-en="We're MGM Development Group, a local Central Florida builder. We build one home at a time, and if you've ever thought about selling your lot, we'd be glad to talk. No pressure and no obligation." data-es="Somos MGM Development Group, un constructor local de la Florida Central. Construimos una casa a la vez y, si alguna vez ha pensado en vender su lote, nos encantaría conversar. Sin presión y sin compromiso.">We're MGM Development Group, a local Central Florida builder.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#respond" data-en="Reply in 30 seconds" data-es="Responder en 30 segundos">Reply in 30 seconds</a>
+      <a class="btn btn-ghost" href="#meet" data-en="Meet Michael Garcia" data-es="Conozca a Michael Garcia">Meet Michael Garcia</a>
+    </div>
+  </div>
+  <div class="mapcard" id="codebox" style="display:none;padding:26px"><h3 style="font-size:1.2rem;margin-bottom:.4rem" data-en="Did you get a letter from us?" data-es="¿Recibió una carta nuestra?">Did you get a letter from us?</h3><p style="color:var(--muted);font-size:.95rem;margin-bottom:14px" data-en="Enter the code printed on it to see your lot." data-es="Escriba el código impreso en la carta para ver su lote.">Enter the code printed on it.</p><div style="display:flex;gap:8px"><input id="codein" placeholder="LT····" style="text-transform:uppercase" /><button class="btn btn-primary" id="codego">OK</button></div></div>
+  <div class="mapcard" id="mapcard">
+    <svg id="map" viewBox="0 0 800 777" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Subdivision map"><line x1="16.1" y1="670.5" x2="782.0" y2="674.2" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><line x1="101.0" y1="661.8" x2="101.0" y2="340.5" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><line x1="272.9" y1="661.8" x2="272.9" y2="285.7" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><line x1="451.3" y1="661.8" x2="451.3" y2="397.8" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><line x1="679.8" y1="661.8" x2="679.8" y2="396.5" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><line x1="457.8" y1="389.1" x2="778.8" y2="389.1" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><line x1="98.8" y1="275.8" x2="457.8" y2="275.8" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><line x1="394.7" y1="265.8" x2="394.7" y2="15.5" stroke="#dfe6f0" stroke-width="19.9" stroke-linecap="round"/><polygon points="223.0,679.0 286.7,679.2 287.0,759.2 222.6,758.9" fill="#d6e6f7"/><polygon points="129.3,267.0 123.6,267.8 112.7,271.7 103.6,278.5 96.7,287.8 94.4,293.1 92.4,304.4 92.8,190.7 129.7,190.3" fill="#d6e6f7"/><polygon points="376.0,78.3 374.5,84.7 375.2,91.5 378.0,97.4 383.7,103.5 385.8,108.3 385.9,128.3 320.8,128.1 321.3,78.0" fill="#d6e6f7"/><polygon points="784.2,308.0 784.0,343.0 751.5,360.6 741.6,358.2 741.6,307.6" fill="#d6e6f7"/><polygon points="538.2,680.1 538.0,760.0 479.6,759.8 476.3,758.9 472.5,755.9 470.6,751.3 471.0,688.8 473.6,683.0 479.0,679.8" fill="#d6e6f7"/><polygon points="264.9,608.5 175.0,608.2 174.2,490.8 265.1,491.1" fill="#d6e6f7"/><polygon points="589.3,568.6 671.1,579.2 671.1,590.4 606.0,581.5 535.9,581.2 536.2,475.0 589.8,475.1" fill="#d6e6f7"/><polygon data-p="3651-000-001" points="783.8,385.6 761.0,385.5 762.0,375.9 760.2,369.8 756.6,364.4 751.5,360.6 784.0,343.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-001-001" points="443.4,750.8 442.2,756.1 440.3,758.0 436.6,759.5 389.3,759.5 388.7,679.6 435.6,679.8 439.3,680.7 442.3,683.3 443.7,688.3" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-001-002" points="388.7,679.6 389.3,759.5 337.8,759.3 338.1,679.3" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-001-003" points="337.8,759.3 287.0,759.2 286.7,679.2 338.1,679.3" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-002-001" points="171.1,678.7 223.0,679.0 222.6,758.9 171.1,758.7" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-002-002" points="120.3,678.5 171.1,678.7 171.1,758.7 120.7,758.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-002-003" points="69.4,678.2 120.3,678.5 120.7,758.5 69.2,758.3" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-002-004" points="24.6,670.0 24.8,678.1 69.4,678.2 69.2,758.3 22.3,758.3 18.8,756.8 16.5,753.8 16.1,670.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-003-001" points="92.3,653.1 90.3,658.4 85.5,661.4 24.5,661.3 24.6,670.0 16.1,670.0 16.1,598.8 92.3,598.7" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-003-002" points="92.3,598.7 16.1,598.8 16.1,547.0 92.2,546.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-003-003" points="16.1,547.0 16.1,495.4 92.2,495.8 92.2,546.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-003-004" points="92.2,495.8 16.1,495.4 16.1,443.6 92.0,443.9" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-003-005" points="16.1,443.6 16.1,392.9 92.0,393.2 92.0,443.9" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-003-006" points="16.1,392.9 16.0,341.3 91.9,341.0 92.0,393.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-004-001" points="129.3,267.0 129.7,190.3 180.9,190.3 180.8,267.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-004-002" points="232.0,190.0 232.3,267.0 180.8,267.0 180.9,190.3" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-004-003" points="283.1,267.0 232.3,267.0 232.0,190.0 283.3,190.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-004-004" points="283.3,190.2 334.4,190.3 334.2,267.0 283.1,267.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-004-005" points="385.6,258.5 382.8,264.3 377.0,267.0 334.2,267.0 334.4,190.3 385.8,190.1" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-004-006" points="334.4,190.3 320.4,190.5 320.8,128.1 385.9,128.3 385.8,190.1" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-005-001" points="387.3,16.1 387.4,66.8 381.8,70.3 376.0,78.3 321.3,78.0 321.7,16.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-005-002" points="466.5,65.6 414.0,78.6 408.5,70.7 403.1,67.2 396.9,65.6 387.4,66.8 387.3,16.1 467.7,16.4" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-005-003" points="414.0,78.6 466.5,65.6 464.7,140.3 403.0,139.9 403.4,107.3 405.8,103.4 411.5,97.8 414.4,91.8 415.3,85.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-005-004" points="403.0,139.9 464.7,140.3 463.2,204.2 402.7,204.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-005-005" points="463.2,204.2 460.7,305.0 458.8,305.0 456.2,293.4 453.7,288.1 446.5,278.7 442.1,275.0 437.0,271.9 425.9,267.9 408.4,266.9 405.0,264.7 403.3,262.4 402.4,258.3 402.7,204.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-006-001" points="460.7,305.0 512.6,305.5 512.1,379.5 467.5,379.0 463.3,377.6 461.0,375.6 459.0,370.1 458.8,305.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-006-002" points="565.9,306.0 565.9,380.0 512.1,379.5 512.6,305.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-006-003" points="565.9,380.0 565.9,306.0 619.1,306.5 618.5,380.6" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-006-004" points="618.5,380.6 619.1,306.5 671.8,307.0 671.5,381.1" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-006-005" points="741.6,307.6 741.6,358.2 734.7,359.4 728.8,362.9 724.4,368.3 720.4,377.7 716.4,380.9 713.1,381.5 671.5,381.1 671.8,307.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-001" points="783.8,385.6 783.5,450.7 688.4,450.2 688.6,405.8 689.8,402.0 692.6,399.4 696.2,398.4 744.9,398.8 753.6,395.3 758.1,390.9 761.0,385.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-002" points="783.5,450.7 783.2,505.0 688.0,503.8 688.4,450.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-003" points="782.9,558.2 687.8,557.3 688.0,503.8 783.2,505.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-004" points="782.9,558.2 782.7,610.9 687.5,610.6 687.8,557.3" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-005" points="782.7,610.9 782.3,679.1 688.7,653.6 687.4,651.6 687.5,610.6" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-006" points="782.3,679.1 781.9,760.9 740.3,760.8 681.0,684.3 686.4,680.7 691.7,672.4 692.5,662.7 688.7,653.6" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-007" points="681.0,684.3 740.3,760.8 646.4,760.4 646.6,680.6 657.1,680.5 662.9,683.8 668.8,685.9 675.0,686.1" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-008" points="646.4,760.4 592.5,760.2 591.9,680.3 646.6,680.6" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-007-009" points="538.2,680.1 591.9,680.3 592.5,760.2 538.0,760.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-001" points="175.0,608.2 182.1,608.2 182.5,662.2 118.2,661.8 113.9,660.5 110.7,657.3 109.3,653.1 109.3,608.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-002" points="175.0,608.2 109.3,608.0 109.5,549.5 174.6,549.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-003" points="109.5,549.5 109.6,490.9 174.2,490.8 174.6,549.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-004" points="186.7,439.8 186.6,490.8 109.6,490.9 109.6,439.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-005" points="109.6,439.5 109.7,388.5 186.8,388.6 186.7,439.8" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-006" points="109.8,337.4 186.9,337.2 186.8,388.6 109.7,388.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-007" points="187.1,284.5 186.9,337.2 109.8,337.4 110.2,303.4 112.8,296.2 115.0,293.1 120.7,287.8 131.3,284.1" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-008" points="265.4,336.9 186.9,337.2 187.1,284.5 257.7,284.7 261.3,285.7 264.2,288.3 265.4,291.9" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-009" points="265.4,336.9 265.3,388.6 186.8,388.6 186.9,337.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-010" points="265.1,440.0 186.7,439.8 186.8,388.6 265.3,388.6" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-011" points="265.1,440.0 265.1,491.1 186.6,490.8 186.7,439.8" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-008-012" points="264.9,608.5 264.9,652.9 263.3,657.8 259.6,661.3 256.3,662.4 182.5,662.2 182.1,608.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-001" points="362.0,607.2 361.9,662.4 290.2,661.9 286.1,660.9 282.2,656.9 281.5,652.8 281.5,607.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-002" points="281.5,607.0 281.4,555.6 362.0,555.8 362.0,607.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-003" points="281.4,555.6 281.4,504.1 362.1,504.5 362.0,555.8" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-004" points="362.1,504.5 281.4,504.1 281.4,453.1 362.2,453.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-005" points="362.3,401.9 362.2,453.2 281.4,453.1 281.4,401.7" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-006" points="362.3,401.9 281.4,401.7 281.2,345.2 362.4,345.4" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-007" points="362.4,345.4 281.2,345.2 281.2,293.4 281.9,291.6 285.5,287.1 290.7,284.7 362.4,284.7" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-008" points="441.9,345.5 362.4,345.4 362.4,284.7 419.4,284.7 427.0,286.2 433.7,290.1 438.7,295.9 441.5,303.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-009" points="362.4,345.4 441.9,345.5 441.9,402.2 362.3,401.9" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-010" points="441.9,402.2 441.9,453.2 362.2,453.2 362.3,401.9" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-011" points="362.1,504.5 362.2,453.2 441.9,453.2 441.8,505.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-012" points="441.8,556.1 362.0,555.8 362.1,504.5 441.8,505.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-013" points="441.8,556.1 442.5,590.4 444.1,607.6 362.0,607.2 362.0,555.8" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-009-014" points="444.1,607.6 447.8,639.7 448.6,655.4 446.8,659.4 444.7,661.4 439.2,662.8 361.9,662.4 362.0,607.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-001" points="514.0,581.1 514.0,663.0 474.3,662.9 468.8,660.9 466.0,655.9 459.5,581.0" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-002" points="565.4,663.3 514.0,663.0 514.0,581.1 565.1,581.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-003" points="616.2,663.4 565.4,663.3 565.1,581.2 606.0,581.5 616.2,582.7" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-004" points="671.1,590.4 670.9,640.2 669.1,648.0 665.1,654.7 659.2,659.8 651.9,662.9 616.2,663.4 616.2,582.7" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-005" points="671.3,525.1 671.1,579.2 589.3,568.6 589.5,524.8" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-006" points="671.3,525.1 589.5,524.8 589.8,475.1 671.5,475.5" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-007" points="663.0,398.3 668.2,399.5 671.0,402.5 671.7,405.1 671.5,475.5 618.0,475.2 618.0,397.8" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-008" points="565.0,475.1 565.2,397.2 618.0,397.8 618.0,475.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-009" points="512.7,396.5 565.2,397.2 565.0,475.1 512.9,474.9" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-010" points="512.7,396.5 512.9,474.9 458.8,474.8 458.8,404.1 460.7,399.2 463.8,396.7 466.4,396.1" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-011" points="458.8,474.8 536.2,475.0 536.1,528.2 458.9,527.9" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><polygon data-p="3651-010-012" points="535.9,581.2 459.5,581.0 458.9,527.9 536.1,528.2" fill="#eef2f7" stroke="#fff" stroke-width="1.2"/><g id="pin"></g></svg>
+    <div class="mapcap"><b id="lotname"></b><span id="lotsize"></span></div>
+  </div>
+</div></section>
+
+<section id="meet"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-en="From the owner" data-es="Del dueño">From the owner</span>
+  <h2 data-en="A short note from Michael Garcia" data-es="Una nota breve de Michael Garcia">A short note from Michael Garcia</h2></div>
+  <div class="meet">
+    <img src="michael-garcia.jpg" alt="Michael Garcia, owner of MGM Development Group" />
+    <div>
+      <blockquote data-en="I'm Michael Garcia, the owner of MGM Development Group. I'm a local builder here in Central Florida, and I read every reply myself. If you have any questions about this offer, or just want to talk it through, I'm glad to help, no pressure at all." data-es="Soy Michael Garcia, dueño de MGM Development Group. Soy un constructor local aquí en la Florida Central y leo personalmente cada respuesta. Si tiene alguna pregunta sobre esta oferta, o simplemente quiere conversarlo, con gusto le ayudo, sin ninguna presión.">I'm Michael Garcia, the owner of MGM Development Group. I'm a local builder here in Central Florida, and I read every reply myself.</blockquote>
+      <p class="sig"><b>Michael Garcia</b><span data-en="Principal, MGM Development Group" data-es="Principal, MGM Development Group">Principal, MGM Development Group</span></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="respond" style="background:var(--bg-soft)"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-en="Your answer" data-es="Su respuesta">Your answer</span>
+  <h2 data-en="How would you like to respond?" data-es="¿Cómo le gustaría responder?">How would you like to respond?</h2>
+  <p data-en="Any answer is welcome, including no. It only takes a moment." data-es="Cualquier respuesta es bienvenida, incluso un no. Solo toma un momento.">Any answer is welcome, including no.</p></div>
+  <div class="choices">
+    <button class="choice" data-c="yes"><div class="ic">💬</div><h3 data-en="I'd like to talk" data-es="Me gustaría conversar">I'd like to talk</h3><p data-en="Tell us the best way and time to reach you." data-es="Díganos la mejor forma y hora para contactarle.">Tell us the best way and time to reach you.</p></button>
+    <button class="choice" data-c="later"><div class="ic">📅</div><h3 data-en="Maybe later" data-es="Quizás más adelante">Maybe later</h3><p data-en="We'll check back when it suits you, not before." data-es="Le escribimos cuando le convenga, no antes.">We'll check back when it suits you.</p></button>
+    <button class="choice" data-c="no"><div class="ic">✋</div><h3 data-en="Not interested" data-es="No me interesa">Not interested</h3><p data-en="We'll remove your lot from our list. No more letters." data-es="Quitamos su lote de nuestra lista. No más cartas.">We'll remove your lot from our list.</p></button>
+  </div>
+
+  <form id="f" action="https://formsubmit.co/mgarcia@mgmresults.com" method="POST">
+    <input type="hidden" name="_subject" id="subj" value="Land reply" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_next" id="next" value="" />
+    <input type="text" name="_honey" style="display:none" />
+    <input type="hidden" name="Code" id="code" />
+    <input type="hidden" name="Lot" id="lotf" />
+    <input type="hidden" name="Response" id="resp" />
+    <input type="hidden" name="Language" id="langf" value="en" />
+    <div class="field" id="genericlot" style="display:none"><label data-en="Where is your lot? (address, parcel number or subdivision)" data-es="¿Dónde está su lote? (dirección, número de parcela o subdivisión)">Where is your lot?</label><input name="Lot location" /></div>
+    <div class="row">
+      <div class="field"><label data-en="Name" data-es="Nombre">Name</label><input name="Name" id="nm" /></div>
+      <div class="field g-yes g-later"><label data-en="Phone" data-es="Teléfono">Phone</label><input name="Phone" type="tel" /></div>
+    </div>
+    <div class="field g-yes g-later"><label data-en="Email" data-es="Email">Email</label><input name="Email" type="email" /></div>
+    <div class="field g-yes"><label data-en="Best way to reach you" data-es="Mejor forma de contactarle">Best way to reach you</label>
+      <div class="pills"><label><input type="radio" name="Contact by" value="Call" checked /><span data-en="Call" data-es="Llamada">Call</span></label><label><input type="radio" name="Contact by" value="Text" /><span data-en="Text" data-es="Texto">Text</span></label><label><input type="radio" name="Contact by" value="Email" /><span>Email</span></label></div></div>
+    <div class="field g-yes"><label data-en="Best time" data-es="Mejor hora">Best time</label>
+      <div class="pills"><label><input type="radio" name="Best time" value="Morning" checked /><span data-en="Morning" data-es="Mañana">Morning</span></label><label><input type="radio" name="Best time" value="Afternoon" /><span data-en="Afternoon" data-es="Tarde">Afternoon</span></label><label><input type="radio" name="Best time" value="Evening" /><span data-en="Evening" data-es="Noche">Evening</span></label></div></div>
+    <div class="field g-later"><label data-en="When should we check back?" data-es="¿Cuándo le volvemos a escribir?">When should we check back?</label>
+      <div class="pills"><label><input type="radio" name="Check back" value="6 months" checked /><span data-en="In 6 months" data-es="En 6 meses">In 6 months</span></label><label><input type="radio" name="Check back" value="1 year" /><span data-en="In 1 year" data-es="En 1 año">In 1 year</span></label></div></div>
+    <div class="field g-yes g-later g-no"><label data-en="Anything you'd like to share? (optional)" data-es="¿Algo que quiera contarnos? (opcional)">Anything you'd like to share? (optional)</label><textarea name="Message"></textarea></div>
+    <div class="field g-yes"><label class="check"><input type="checkbox" name="Text consent" value="Yes" /><span data-en="It's OK to text me at the number above about my lot. Message and data rates may apply. Reply STOP anytime." data-es="Acepto recibir mensajes de texto al número indicado sobre mi lote. Pueden aplicar cargos de mensajes y datos. Responda STOP cuando quiera.">It's OK to text me about my lot.</span></label></div>
+    <button type="submit" class="btn btn-primary" style="width:100%" id="sendbtn" data-en="Send my answer" data-es="Enviar mi respuesta">Send my answer</button>
+    <p class="note" data-en="Only Michael Garcia reads these replies. We never sell or share your information." data-es="Solo Michael Garcia lee estas respuestas. Nunca vendemos ni compartimos su información.">Only Michael Garcia reads these replies.</p>
+  </form>
+  <div class="thanks" id="thanks" data-en="Thank you. We received your answer and will follow exactly what you asked." data-es="Gracias. Recibimos su respuesta y haremos exactamente lo que nos pidió.">Thank you.</div>
+</div></section>
+
+<section class="benefits"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-en="If you decide to sell" data-es="Si decide vender">If you decide to sell</span>
+  <h2 data-en="Selling to a builder, made simple" data-es="Venderle a un constructor, de forma sencilla">Selling to a builder, made simple</h2>
+  <p data-en="No listing, no showings, no waiting for a buyer to find you." data-es="Sin anuncios, sin visitas y sin esperar a que aparezca un comprador.">No listing, no showings.</p></div>
+  <div class="bgrid">
+    <div class="b"><h3 data-en="Direct, owner to owner" data-es="Directo, de dueño a dueño">Direct, owner to owner</h3><p data-en="You deal with us directly, so there's no listing agreement and no agent commission on your side." data-es="Trata directamente con nosotros: sin contrato de listado y sin comisión de agente de su lado.">You deal with us directly.</p></div>
+    <div class="b"><h3 data-en="Your timeline" data-es="A su ritmo">Your timeline</h3><p data-en="We close at a licensed Florida title company, on a date that works for you." data-es="Cerramos en una compañía de título con licencia en Florida, en la fecha que le convenga.">We close on your schedule.</p></div>
+    <div class="b"><h3 data-en="As it is today" data-es="Tal como está">As it is today</h3><p data-en="No clearing, mowing or repairs needed. We take care of our own due diligence." data-es="No tiene que limpiar, cortar ni arreglar nada. Nosotros nos encargamos de nuestra propia diligencia debida.">No clearing or repairs needed.</p></div>
+    <div class="b"><h3 data-en="Live far away? No problem" data-es="¿Vive lejos? No hay problema">Live far away? No problem</h3><p data-en="Many owners never need to travel. Documents can be signed remotely with the title company." data-es="Muchos dueños no necesitan viajar. Los documentos se pueden firmar a distancia con la compañía de título.">Documents can be signed remotely.</p></div>
+    <div class="b"><h3 data-en="Inherited land" data-es="Terreno heredado">Inherited land</h3><p data-en="If the lot came through a family estate, we're patient and can work alongside your attorney." data-es="Si el lote viene de una herencia, tenemos paciencia y podemos trabajar junto a su abogado.">We can work with your attorney.</p></div>
+    <div class="b"><h3 data-en="A home the street will be proud of" data-es="Una casa que el vecindario va a apreciar">A home the street will be proud of</h3><p data-en="We build to the neighborhood's standards and its architectural guidelines." data-es="Construimos según los estándares del vecindario y sus normas de arquitectura.">We build to the neighborhood's standards.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-en="What we build" data-es="Lo que construimos">What we build</span>
+  <h2 data-en="Custom homes, designed for each lot" data-es="Casas a la medida, diseñadas para cada lote">Custom homes, designed for each lot</h2>
+  <p data-en="We don't drop a stock plan on a lot. Each home is designed for its site and its neighborhood." data-es="No ponemos un plano de catálogo en cualquier lote. Cada casa se diseña para su terreno y su vecindario.">Each home is designed for its site.</p></div>
+  <div class="cgrid">
+    <div class="c"><div class="n">01</div><h3 data-en="Designed around the land" data-es="Diseñada alrededor del terreno">Designed around the land</h3><p data-en="We study the lot first: the trees worth keeping, the light, the views and the setbacks. The house is laid out to fit them." data-es="Primero estudiamos el lote: los árboles que vale la pena conservar, la luz, las vistas y los retiros. La casa se diseña para respetarlos.">We study the lot first.</p></div>
+    <div class="c"><div class="n">02</div><h3 data-en="Architecture that belongs" data-es="Arquitectura que encaja">Architecture that belongs</h3><p data-en="Plans are drawn with an architect and reviewed by the community's architectural committee before we break ground." data-es="Los planos se hacen con un arquitecto y pasan por el comité de arquitectura de la comunidad antes de empezar.">Reviewed by the architectural committee.</p></div>
+    <div class="c"><div class="n">03</div><h3 data-en="Built to last" data-es="Construida para durar">Built to last</h3><p data-en="Quality materials and finishes, with the owner on site at every stage of construction." data-es="Materiales y acabados de calidad, con el dueño presente en cada etapa de la obra.">The owner on site at every stage.</p></div>
+  </div>
+  <div class="who"><div class="avatar" style="overflow:hidden;padding:0"><img src="michael-garcia.jpg" alt="Michael Garcia" style="width:100%;height:100%;object-fit:cover;border-radius:50%" /></div><div>
+    <h3 style="font-size:1.15rem" data-en="You'll talk with the owner" data-es="Hablará con el dueño">You'll talk with the owner</h3>
+    <p style="color:var(--muted)" data-en="MGM Development Group is principal-led. When you reply, Michael Garcia gets back to you personally." data-es="MGM Development Group es dirigida por su dueño. Cuando usted responde, Michael Garcia le contesta personalmente.">Michael Garcia gets back to you personally.</p>
+    <p style="margin-top:.5rem"><a href="https://mgmdevgroup.com/" style="color:var(--navy-1);font-weight:600" data-en="More about us at mgmdevgroup.com" data-es="Más sobre nosotros en mgmdevgroup.com">More about us</a></p></div></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <img src="/logo_lockup_white.svg" alt="MGM Development Group" />
+  <p data-en="We identified your lot through public Marion County property records. Your reply is used only to answer you, and you can ask us to stop contacting you at any time." data-es="Identificamos su lote en los registros públicos de propiedad del Condado de Marion. Su respuesta solo se usa para contestarle, y puede pedirnos que dejemos de contactarle en cualquier momento.">We identified your lot through public records.</p>
+  <p style="margin-top:10px">&copy; <span id="yr"></span> MGM Development Group LLC · mgmdevgroup.com</p>
+</div></footer>
+
+<script>
+const LOTS={"LT7REX":{"p":"3651-001-001","b":"A","l":1,"a":0.81,"c":[413.7,718.6]},"LTAXDY":{"p":"3651-001-002","b":"A","l":2,"a":0.8,"c":[363.0,719.4]},"LT6XCD":{"p":"3651-002-002","b":"B","l":2,"a":0.8,"c":[145.0,718.2]},"LT74V7":{"p":"3651-002-003","b":"B","l":3,"a":0.8,"c":[92.2,717.4]},"LTU9CX":{"p":"3651-003-006","b":"C","l":6,"a":0.77,"c":[56.9,368.2]},"LT4JFY":{"p":"3651-004-005","b":"D","l":5,"a":0.75,"c":[358.7,227.9]},"LTXEY7":{"p":"3651-004-006","b":"D","l":6,"a":0.79,"c":[350.0,158.0]},"LTJTHN":{"p":"3651-005-003","b":"E","l":3,"a":0.8,"c":[430.2,104.6]},"LTMNET":{"p":"3651-006-005","b":"F","l":5,"a":0.92,"c":[704.9,342.3]},"LT6RDE":{"p":"3651-007-002","b":"G","l":2,"a":1.01,"c":[734.7,477.0]},"LTEUNW":{"p":"3651-007-009","b":"G","l":9,"a":0.85,"c":[564.8,720.1]},"LTJKDP":{"p":"3651-009-001","b":"I","l":1,"a":0.84,"c":[320.3,633.9]},"LTM6AH":{"p":"3651-010-001","b":"J","l":1,"a":0.81,"c":[492.5,622.5]},"LTF94Y":{"p":"3651-010-007","b":"J","l":7,"a":0.78,"c":[646.7,437.7]},"LTAHFC":{"p":"3651-010-008","b":"J","l":8,"a":0.81,"c":[590.7,436.0]}};
+const q=new URLSearchParams(location.search); const code=(q.get('c')||'').toUpperCase(); const lot=LOTS[code];
+let lang=(q.get('lang')||(navigator.language||'en')).slice(0,2)==='es'?'es':'en';
+const T={
+ h1:{en:l=>l?`Hello! We wrote to you about <em>Lot ${l.l}, Block ${l.b}</em> in Legendary Trails.`:`Own a lot in <em>Central Florida</em>? Let's talk.`,
+     es:l=>l?`¡Hola! Le escribimos sobre el <em>Lote ${l.l}, Bloque ${l.b}</em> en Legendary Trails.`:`¿Tiene un lote en la <em>Florida Central</em>? Conversemos.`},
+ name:{en:l=>`Lot ${l.l}, Block ${l.b}`,es:l=>`Lote ${l.l}, Bloque ${l.b}`},
+ size:{en:l=>`${l.a.toFixed(2)} acres · Legendary Trails`,es:l=>`${l.a.toFixed(2)} acres · Legendary Trails`},
+ resp:{yes:'YES - wants to talk',later:'LATER - check back',no:'NO - remove from list'}
+};
+function render(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-en]').forEach(e=>{const v=e.dataset[lang]; if(v!==undefined) e.textContent=v;});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+  document.getElementById('h1').innerHTML=T.h1[lang](lot);
+  document.getElementById('langf').value=lang;
+  if(lot){document.getElementById('lotname').textContent=T.name[lang](lot);document.getElementById('lotsize').textContent=T.size[lang](lot);}
+}
+// map highlight
+if(lot){
+  const poly=document.querySelector(`[data-p="${lot.p}"]`); poly.setAttribute('fill','#c7851f'); poly.setAttribute('stroke','#7a4a0c'); poly.setAttribute('stroke-width','2');
+  const [x,y]=lot.c; document.getElementById('pin').innerHTML=`<circle cx="${x}" cy="${y}" r="26" fill="none" stroke="#c7851f" stroke-width="3"><animate attributeName="r" values="18;34;18" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.2;1" dur="2.4s" repeatCount="indefinite"/></circle>`;
+  document.getElementById('code').value=code; document.getElementById('lotf').value=`Legendary Trails, Block ${lot.b}, Lot ${lot.l} (${lot.p})`;
+} else { document.getElementById('mapcard').style.display='none'; document.getElementById('codebox').style.display='block'; document.getElementById('genericlot').style.display='block'; document.getElementById('code').value=code||'none'; }
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;render();});
+const f=document.getElementById('f');
+document.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{
+  const c=b.dataset.c; document.querySelectorAll('.choice').forEach(x=>x.classList.toggle('on',x===b));
+  f.classList.add('on'); document.getElementById('resp').value=T.resp[c];
+  document.getElementById('subj').value=`Land reply: ${T.resp[c]} · ${lot?('Block '+lot.b+' Lot '+lot.l):'general'} · ${code||'no code'}`;
+  f.querySelectorAll('.field').forEach(fl=>{const g=[...fl.classList].filter(k=>k.startsWith('g-')); if(g.length) fl.style.display=g.includes('g-'+c)?'':'none';});
+  document.getElementById('nm').required=(c!=='no');
+  f.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.getElementById('next').value=location.href.split('#')[0].replace(/[?&]sent=1/,'')+(location.search?'&':'?')+'sent=1#respond';
+if(q.get('sent')==='1'){document.getElementById('thanks').style.display='block';document.querySelector('.choices').style.display='none';}
+document.getElementById('codego').onclick=()=>{const v=document.getElementById('codein').value.trim().toUpperCase(); if(v) location.search='?c='+encodeURIComponent(v);};
+document.getElementById('yr').textContent=new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
