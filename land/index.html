@@ -165,8 +165,10 @@ footer p{color:#8ea3c6;max-width:720px}
     <input type="hidden" name="_template" value="table" />
     <input type="hidden" name="_next" id="next" value="" />
     <input type="text" name="_honey" style="display:none" />
+    <input type="hidden" name="_webhook" value="https://script.google.com/macros/s/AKfycbx959ekXHDXzaII0sGD4gLOw5MvoxYYad35Y2XjXy5aW_kKZVKBpxm94FLIw2_fvWo/exec" />
     <input type="hidden" name="Code" id="code" />
     <input type="hidden" name="Lot" id="lotf" />
+    <input type="hidden" name="Subdivision" id="subdivf" />
     <input type="hidden" name="Response" id="resp" />
     <input type="hidden" name="Language" id="langf" value="en" />
     <div class="field" id="genericlot" style="display:none"><label data-en="Where is your lot? (address, parcel number or subdivision)" data-es="¿Dónde está su lote? (dirección, número de parcela o subdivisión)">Where is your lot?</label><input name="Lot location" /></div>
@@ -226,14 +228,14 @@ footer p{color:#8ea3c6;max-width:720px}
 </div></footer>
 
 <script>
-const LOTS={"LT7REX":{"p":"3651-001-001","b":"A","l":1,"a":0.81,"c":[413.7,718.6],"price":136000},"LTAXDY":{"p":"3651-001-002","b":"A","l":2,"a":0.8,"c":[363.0,719.4]},"LT6XCD":{"p":"3651-002-002","b":"B","l":2,"a":0.8,"c":[145.0,718.2]},"LT74V7":{"p":"3651-002-003","b":"B","l":3,"a":0.8,"c":[92.2,717.4]},"LTU9CX":{"p":"3651-003-006","b":"C","l":6,"a":0.77,"c":[56.9,368.2]},"LT4JFY":{"p":"3651-004-005","b":"D","l":5,"a":0.75,"c":[358.7,227.9]},"LTXEY7":{"p":"3651-004-006","b":"D","l":6,"a":0.79,"c":[350.0,158.0]},"LTJTHN":{"p":"3651-005-003","b":"E","l":3,"a":0.8,"c":[430.2,104.6]},"LTMNET":{"p":"3651-006-005","b":"F","l":5,"a":0.92,"c":[704.9,342.3]},"LT6RDE":{"p":"3651-007-002","b":"G","l":2,"a":1.01,"c":[734.7,477.0]},"LTEUNW":{"p":"3651-007-009","b":"G","l":9,"a":0.85,"c":[564.8,720.1]},"LTJKDP":{"p":"3651-009-001","b":"I","l":1,"a":0.84,"c":[320.3,633.9]},"LTM6AH":{"p":"3651-010-001","b":"J","l":1,"a":0.81,"c":[492.5,622.5]},"LTF94Y":{"p":"3651-010-007","b":"J","l":7,"a":0.78,"c":[646.7,437.7]},"LTAHFC":{"p":"3651-010-008","b":"J","l":8,"a":0.81,"c":[590.7,436.0]}};
+const LOTS={"LT7REX":{"p":"3651-001-001","b":"A","l":1,"a":0.81,"c":[413.7,718.6],"sub":"Legendary Trails","price":136000},"LTAXDY":{"p":"3651-001-002","b":"A","l":2,"a":0.8,"c":[363.0,719.4],"sub":"Legendary Trails"},"LT6XCD":{"p":"3651-002-002","b":"B","l":2,"a":0.8,"c":[145.0,718.2],"sub":"Legendary Trails"},"LT74V7":{"p":"3651-002-003","b":"B","l":3,"a":0.8,"c":[92.2,717.4],"sub":"Legendary Trails"},"LTU9CX":{"p":"3651-003-006","b":"C","l":6,"a":0.77,"c":[56.9,368.2],"sub":"Legendary Trails"},"LT4JFY":{"p":"3651-004-005","b":"D","l":5,"a":0.75,"c":[358.7,227.9],"sub":"Legendary Trails"},"LTXEY7":{"p":"3651-004-006","b":"D","l":6,"a":0.79,"c":[350.0,158.0],"sub":"Legendary Trails"},"LTJTHN":{"p":"3651-005-003","b":"E","l":3,"a":0.8,"c":[430.2,104.6],"sub":"Legendary Trails"},"LTMNET":{"p":"3651-006-005","b":"F","l":5,"a":0.92,"c":[704.9,342.3],"sub":"Legendary Trails"},"LT6RDE":{"p":"3651-007-002","b":"G","l":2,"a":1.01,"c":[734.7,477.0],"sub":"Legendary Trails"},"LTEUNW":{"p":"3651-007-009","b":"G","l":9,"a":0.85,"c":[564.8,720.1],"sub":"Legendary Trails"},"LTJKDP":{"p":"3651-009-001","b":"I","l":1,"a":0.84,"c":[320.3,633.9],"sub":"Legendary Trails"},"LTM6AH":{"p":"3651-010-001","b":"J","l":1,"a":0.81,"c":[492.5,622.5],"sub":"Legendary Trails"},"LTF94Y":{"p":"3651-010-007","b":"J","l":7,"a":0.78,"c":[646.7,437.7],"sub":"Legendary Trails"},"LTAHFC":{"p":"3651-010-008","b":"J","l":8,"a":0.81,"c":[590.7,436.0],"sub":"Legendary Trails"}};
 const q=new URLSearchParams(location.search); const code=(q.get('c')||'').toUpperCase(); const lot=LOTS[code];
 let lang=(q.get('lang')||(navigator.language||'en')).slice(0,2)==='es'?'es':'en';
 const T={
- h1:{en:l=>l?`Hello! We wrote to you about <em>Lot ${l.l}, Block ${l.b}</em> in Legendary Trails.`:`Own a lot in <em>Central Florida</em>? Let's talk.`,
-     es:l=>l?`¡Hola! Le escribimos sobre el <em>Lote ${l.l}, Bloque ${l.b}</em> en Legendary Trails.`:`¿Tiene un lote en la <em>Florida Central</em>? Conversemos.`},
+ h1:{en:l=>l?`Hello! We wrote to you about <em>Lot ${l.l}, Block ${l.b}</em> in ${l.sub}.`:`Own a lot in <em>Central Florida</em>? Let's talk.`,
+     es:l=>l?`¡Hola! Le escribimos sobre el <em>Lote ${l.l}, Bloque ${l.b}</em> en ${l.sub}.`:`¿Tiene un lote en la <em>Florida Central</em>? Conversemos.`},
  name:{en:l=>`Lot ${l.l}, Block ${l.b}`,es:l=>`Lote ${l.l}, Bloque ${l.b}`},
- size:{en:l=>`${l.a.toFixed(2)} acres · Legendary Trails`,es:l=>`${l.a.toFixed(2)} acres · Legendary Trails`},
+ size:{en:l=>`${l.a.toFixed(2)} acres · ${l.sub}`,es:l=>`${l.a.toFixed(2)} acres · ${l.sub}`},
  offer:{en:l=>`$${l.price.toLocaleString('en-US')} <span style="font-weight:400;font-family:Inter;font-size:1.05rem;color:var(--ink)">cash, for your ${l.a} acre lot</span>`,
         es:l=>`$${l.price.toLocaleString('en-US')} <span style="font-weight:400;font-family:Inter;font-size:1.05rem;color:var(--ink)">en efectivo, por su lote de ${l.a} acres</span>`},
  resp:{yes:'YES - wants to talk',later:'LATER - check back',no:'NO - remove from list'}
@@ -251,7 +253,8 @@ function render(){
 if(lot){
   const poly=document.querySelector(`[data-p="${lot.p}"]`); poly.setAttribute('fill','#c7851f'); poly.setAttribute('stroke','#7a4a0c'); poly.setAttribute('stroke-width','2');
   const [x,y]=lot.c; document.getElementById('pin').innerHTML=`<circle cx="${x}" cy="${y}" r="26" fill="none" stroke="#c7851f" stroke-width="3"><animate attributeName="r" values="18;34;18" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.2;1" dur="2.4s" repeatCount="indefinite"/></circle>`;
-  document.getElementById('code').value=code; document.getElementById('lotf').value=`Legendary Trails, Block ${lot.b}, Lot ${lot.l} (${lot.p})`;
+  document.getElementById('code').value=code; document.getElementById('lotf').value=`${lot.sub}, Block ${lot.b}, Lot ${lot.l} (${lot.p})`;
+  document.getElementById('subdivf').value=lot.sub;
   if(lot.price){document.getElementById('offer').style.display='';}
 } else { document.getElementById('mapcard').style.display='none'; document.getElementById('codebox').style.display='block'; document.getElementById('genericlot').style.display='block'; document.getElementById('code').value=code||'none'; }
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;render();});
